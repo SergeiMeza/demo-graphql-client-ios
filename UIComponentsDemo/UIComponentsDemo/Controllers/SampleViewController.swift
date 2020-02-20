@@ -8,15 +8,31 @@ class SampleViewController: UIViewController {
     view
       .setBackground(color: .systemBackground)
     
-    UILabel()
-      .text("Hello World!")
-      .text(UIColor.label)
-      .font(UIFont.systemFont(ofSize: 22, weight: .bold))
-      .textAlignment(.center)
+    UIFactory.VStack()
+      .addArrangedSubviews(
+        UILabel()
+          .text("Hello World!")
+          .text(UIColor.label)
+          .font(UIFont.systemFont(ofSize: 22, weight: .black))
+          .textAlignment(.center)
+          .addTo(view: view),
+        UILabel()
+          .text("Hello World!")
+          .text(UIColor.label)
+          .font(UIFont.systemFont(ofSize: 22, weight: .black))
+          .textAlignment(.center)
+          .addTo(view: view),
+        UIView()
+    )
       .addTo(view: view)
-      .makeConstraints { make in
-        make.edges.equalToSuperview()
-    }
+    .makeConstraints ({ make in
+      make.top.equalToSuperview().inset(40)
+      make.leading.equalToSuperview()
+      make.trailing.equalToSuperview()
+    })
+      
+    
+    
     
     if let navController = navigationController as? AppNavigationController {
       navController.setupStatusBarBackground(color: .systemBackground)
@@ -39,7 +55,16 @@ struct SampleView: UIViewControllerRepresentable {
 
 struct SampleViewPreviews: PreviewProvider {
   static var previews: some View {
-    SampleView()
+    Group {
+      SampleView()
+        .previewDevice(.init(rawValue: "iPhone SE"))
+      SampleView()
+        .environment(\.colorScheme, .dark)
+      .previewDevice(.init(rawValue: "iPhone X"))
+      
+      
+    }
+    
   }
 }
 #endif

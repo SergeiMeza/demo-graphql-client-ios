@@ -14,8 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
       
       // MARK: - Choose View Controller
-      window.rootViewController = UINavigationController(rootViewController: SongChartViewController())
-//      window.rootViewController = UINavigationController(rootViewController: MusicVideoChartViewController())
+//      window.rootViewController = UINavigationController(rootViewController: SongChartViewController())
+      window.rootViewController = UINavigationController(rootViewController: MusicVideoChartViewController())
       
       self.window = window
       window.makeKeyAndVisible()

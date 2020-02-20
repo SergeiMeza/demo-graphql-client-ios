@@ -139,7 +139,6 @@
 		49512B8F23FE5231008BFB77 = {
 			isa = PBXGroup;
 			children = (
-				496503E923FE5F7300E657AC /* New Group */,
 				49512B9A23FE5231008BFB77 /* demo-client-ios */,
 				49512B9923FE5231008BFB77 /* Products */,
 				B980A3457FC53D0C0C7C7849 /* Pods */,
@@ -301,13 +300,6 @@
 				49512C0023FE582A008BFB77 /* SongSearchResultViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		496503E923FE5F7300E657AC /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		7AFD9DE7D2DC944D67F616BC /* Frameworks */ = {
