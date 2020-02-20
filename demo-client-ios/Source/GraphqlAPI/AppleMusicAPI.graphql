@@ -1,0 +1,390 @@
+###################################################
+# CHARTS
+###################################################
+
+query PlaylistCharts(
+  $storefront: String!
+  $language: String
+  $limit: Int
+  $offset: Int
+) {
+  charts(
+    storefront: $storefront
+    types: "playlists"
+    l: $language
+    limit: $limit
+    offset: $offset
+  ) {
+    playlists {
+      ...ChartFragment
+    }
+  }
+}
+
+query AlbumCharts(
+  $storefront: String!
+  $language: String
+  $limit: Int
+  $offset: Int
+) {
+  charts(
+    storefront: $storefront
+    types: "albums"
+    l: $language
+    limit: $limit
+    offset: $offset
+  ) {
+    albums {
+      ...ChartFragment
+    }
+  }
+}
+
+query SongCharts(
+  $storefront: String!
+  $language: String
+  $limit: Int
+  $offset: Int
+) {
+  charts(
+    storefront: $storefront
+    types: "songs"
+    l: $language
+    limit: $limit
+    offset: $offset
+  ) {
+    songs {
+      ...ChartFragment
+    }
+  }
+}
+
+query MusicVideoCharts(
+  $storefront: String!
+  $language: String
+  $limit: Int
+  $offset: Int
+) {
+  charts(
+    storefront: $storefront
+    types: "music-videos"
+    l: $language
+    limit: $limit
+    offset: $offset
+  ) {
+    musicVideos {
+      ...ChartFragment
+    }
+  }
+}
+
+###################################################
+# RESOURCES
+###################################################
+
+query Playlist($id: String!, $storefront: String!, $language: String) {
+  playlist(id: $id, storefront: $storefront, l: $language, include: "") {
+    data {
+      ...PlaylistCellFragment
+      ...PlaylistNavigationFragment
+    }
+  }
+}
+
+query Album($id: String!, $storefront: String!, $language: String) {
+  album(id: $id, storefront: $storefront, l: $language, include: "") {
+    data {
+      ...AlbumCellFragment
+      ...AlbumNavigationFragment
+    }
+  }
+}
+
+query Song($id: String!, $storefront: String!, $language: String) {
+  song(id: $id, storefront: $storefront, l: $language, include: "") {
+    data {
+      ...SongCellFragment
+      ...SongNavigationFragment
+    }
+  }
+}
+
+query MusicVideo($id: String!, $storefront: String!, $language: String) {
+  musicVideo(id: $id, storefront: $storefront, l: $language, include: "") {
+    data {
+      ...MusicVideoCellFragment
+      ...MusicVideoNavigationFragment
+    }
+  }
+}
+
+query Artist($id: String!, $storefront: String!, $language: String) {
+  artist(id: $id, storefront: $storefront, l: $language, include: "") {
+    data {
+      ...ArtistCellFragment
+      ...ArtistNavigationFragment
+    }
+  }
+}
+
+###################################################
+# Search
+###################################################
+
+query MusicSearch(
+  $storefront: String!
+  $term: String
+  $language: String
+  $limit: Int
+  $offset: String
+  $types: [String!]!
+) {
+  musicSearch(
+    storefront: $storefront
+    term: $term
+    l: $language
+    limit: $limit
+    offset: $offset
+    types: $types
+  ) {
+    results {
+      playlists {
+        data {
+          id
+          ...PlaylistCellFragment
+          ...PlaylistNavigationFragment
+          type
+        }
+      }
+      albums {
+        data {
+          id
+          ...AlbumCellFragment
+          ...AlbumNavigationFragment
+          type
+        }
+      }
+      artists {
+        data {
+          id
+          ...ArtistCellFragment
+          ...ArtistNavigationFragment
+          type
+        }
+      }
+      songs {
+        data {
+          id
+          ...SongCellFragment
+          ...SongNavigationFragment
+          type
+        }
+      }
+      musicVideos {
+        data {
+          id
+          ...MusicVideoCellFragment
+          ...MusicVideoNavigationFragment
+          type
+        }
+      }
+    }
+  }
+}
+
+query MusicSearchHints(
+  $storefront: String!
+  $term: String
+  $language: String
+  $limit: Int
+  $types: [String!]!
+) {
+  musicSearchHints(
+    storefront: $storefront
+    term: $term
+    l: $language
+    limit: $limit
+    types: $types
+  ) {
+    results {
+      terms
+    }
+  }
+}
+
+###################################################
+# FRAGMENTS
+###################################################
+
+fragment ChartFragment on Chart {
+  chart
+  name
+  data {
+    ... on Song {
+      ...SongCellFragment
+    }
+    ... on MusicVideo {
+      ...MusicVideoCellFragment
+    }
+    ... on Playlist {
+      ...PlaylistCellFragment
+    }
+    ... on Album {
+      ...AlbumCellFragment
+    }
+  }
+}
+
+fragment PlaylistCellFragment on Playlist {
+  id
+  optionalAttributes: attributes {
+    name
+    curatorName
+    artwork {
+      url
+    }
+  }
+  type
+}
+
+fragment AlbumCellFragment on Album {
+  id
+  optionalAttributes: attributes {
+    name
+    artistName
+    genreNames
+    isSingle
+    trackCount
+    recordLabel
+    copyright
+    releaseDate
+    artwork {
+      url
+    }
+    editorialNotes {
+      short
+    }
+  }
+}
+
+fragment SongCellFragment on Song {
+  id
+  attributes {
+    name
+    artistName
+    durationInMillis
+    releaseDate
+    artwork {
+      url
+    }
+    previews {
+      url
+    }
+  }
+}
+
+fragment MusicVideoCellFragment on MusicVideo {
+  id
+  attributes {
+    name
+    artistName
+    releaseDate
+    artwork {
+      url
+    }
+    previews {
+      url
+      hlsUrl
+    }
+  }
+  type
+}
+
+fragment ArtistCellFragment on Artist {
+  id
+  attributes {
+    name
+    genreNames
+  }
+  type
+}
+
+fragment PlaylistNavigationFragment on Playlist {
+  relationships {
+    tracks {
+      data {
+        ... on Song {
+          ...SongCellFragment
+        }
+        ... on MusicVideo {
+          ...MusicVideoCellFragment
+        }
+      }
+    }
+  }
+}
+
+fragment AlbumNavigationFragment on Album {
+  relationships {
+    tracks {
+      data {
+        ... on Song {
+          ...SongCellFragment
+        }
+        ... on MusicVideo {
+          ...MusicVideoCellFragment
+        }
+      }
+    }
+  }
+}
+
+fragment SongNavigationFragment on Song {
+  relationships {
+    albums {
+      data {
+        ... AlbumCellFragment
+      }
+    }
+    artists {
+      data {
+        ... ArtistCellFragment
+      }
+    }
+  }
+}
+
+fragment MusicVideoNavigationFragment on MusicVideo {
+  relationships {
+    albums {
+      data {
+        ... AlbumCellFragment
+      }
+    }
+    artists {
+      data {
+        ... ArtistCellFragment
+      }
+    }
+  }
+}
+
+fragment ArtistNavigationFragment on Artist {
+  relationships {
+    albums {
+      data {
+        ... AlbumCellFragment
+      }
+    }
+    musicVideos {
+      data {
+        ... MusicVideoCellFragment
+      }
+    }
+    playlists {
+      data {
+        ... PlaylistCellFragment
+      }
+    }
+  }
+}
