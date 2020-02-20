@@ -20,6 +20,9 @@ def ui_pods
   pod 'IGListKit', '~> 3.0'
   pod 'Kingfisher', '~> 5.6.0'
   pod 'JGProgressHUD','~>2.0.3'
+  pod 'TTTAttributedLabel'
+  pod 'CropViewController'
+  pod 'FontAwesome.swift'
 end
 
 ######################################
@@ -45,4 +48,5 @@ target 'UIComponentsDemo' do
   project 'UIComponentsDemo/UIComponentsDemo.xcodeproj'
   foundation_pods
   ui_pods
+  pod 'R.swift'
 end

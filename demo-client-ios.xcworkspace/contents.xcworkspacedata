@@ -17,4 +17,7 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:UIComponents/UIComponents.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -16,6 +16,8 @@
 		496503EC23FE5FA000E657AC /* UIComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 496503EA23FE5FA000E657AC /* UIComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		496503F023FE5FCB00E657AC /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496503EF23FE5FCB00E657AC /* SampleViewController.swift */; };
 		496503F623FE613B00E657AC /* SampleSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496503F523FE613B00E657AC /* SampleSwiftUIView.swift */; };
+		496503F923FE62E700E657AC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496503F823FE62E700E657AC /* Media.xcassets */; };
+		496503FB23FE62F600E657AC /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496503FA23FE62F600E657AC /* R.generated.swift */; };
 		9135BD5E051C0C8B22F8AE20 /* Pods_UIComponentsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AFC73A6477511A1CD94EC8 /* Pods_UIComponentsDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		496503EA23FE5FA000E657AC /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		496503EF23FE5FCB00E657AC /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		496503F523FE613B00E657AC /* SampleSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSwiftUIView.swift; sourceTree = "<group>"; };
+		496503F823FE62E700E657AC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		496503FA23FE62F600E657AC /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		5FBC8D08B85E02100274A0E5 /* Pods-UIComponentsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIComponentsDemo.debug.xcconfig"; path = "Target Support Files/Pods-UIComponentsDemo/Pods-UIComponentsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		81AFC73A6477511A1CD94EC8 /* Pods_UIComponentsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIComponentsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1079D72B73A247AA8DFF27 /* Pods-UIComponentsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIComponentsDemo.release.xcconfig"; path = "Target Support Files/Pods-UIComponentsDemo/Pods-UIComponentsDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		49512C7C23FE5EDE008BFB77 /* UIComponentsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				496503FA23FE62F600E657AC /* R.generated.swift */,
+				496503F723FE62DD00E657AC /* Resources */,
 				496503EE23FE5FB400E657AC /* Controllers */,
 				49512C7D23FE5EDE008BFB77 /* AppDelegate.swift */,
 				49512C7F23FE5EDE008BFB77 /* SceneDelegate.swift */,
@@ -121,6 +127,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		496503F723FE62DD00E657AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				496503F823FE62E700E657AC /* Media.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C3C9D81D13FC78672665F54D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +152,7 @@
 			buildConfigurationList = 49512C8E23FE5EE0008BFB77 /* Build configuration list for PBXNativeTarget "UIComponentsDemo" */;
 			buildPhases = (
 				EB1A2EC56AD0C0D1BF17878E /* [CP] Check Pods Manifest.lock */,
+				496503FC23FE632700E657AC /* Generate R files */,
 				49512C7623FE5EDE008BFB77 /* Sources */,
 				49512C7723FE5EDE008BFB77 /* Frameworks */,
 				49512C7823FE5EDE008BFB77 /* Resources */,
@@ -193,6 +208,7 @@
 			files = (
 				49512C8A23FE5EE0008BFB77 /* LaunchScreen.storyboard in Resources */,
 				49512C8723FE5EE0008BFB77 /* Preview Assets.xcassets in Resources */,
+				496503F923FE62E700E657AC /* Media.xcassets in Resources */,
 				49512C8423FE5EE0008BFB77 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +216,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		496503FC23FE632700E657AC /* Generate R files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "Generate R files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		506CA0A60A41F91B9595E7EA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,6 +284,7 @@
 			files = (
 				49512C7E23FE5EDE008BFB77 /* AppDelegate.swift in Sources */,
 				49512C8023FE5EDE008BFB77 /* SceneDelegate.swift in Sources */,
+				496503FB23FE62F600E657AC /* R.generated.swift in Sources */,
 				496503F623FE613B00E657AC /* SampleSwiftUIView.swift in Sources */,
 				496503F023FE5FCB00E657AC /* SampleViewController.swift in Sources */,
 			);

@@ -3,6 +3,8 @@ PODS:
   - Apollo (0.22.0):
     - Apollo/Core (= 0.22.0)
   - Apollo/Core (0.22.0)
+  - CropViewController (2.5.2)
+  - FontAwesome.swift (1.8.3)
   - IGListKit (3.4.0):
     - IGListKit/Default (= 3.4.0)
   - IGListKit/Default (3.4.0):
@@ -10,6 +12,9 @@ PODS:
   - IGListKit/Diffing (3.4.0)
   - JGProgressHUD (2.0.4)
   - Kingfisher (5.6.0)
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -39,46 +44,61 @@ PODS:
   - SwifterSwift/SwiftStdlib (5.1.0)
   - SwifterSwift/UIKit (5.1.0)
   - SwiftyJSON (4.3.0)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.3)
   - Apollo
+  - CropViewController
+  - FontAwesome.swift
   - IGListKit (~> 3.0)
   - JGProgressHUD (~> 2.0.3)
   - Kingfisher (~> 5.6.0)
+  - R.swift
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
   - SnapKit (~> 5.0.0)
   - SwifterSwift
   - SwiftyJSON (~> 4.0)
+  - TTTAttributedLabel
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Apollo
+    - CropViewController
+    - FontAwesome.swift
     - IGListKit
     - JGProgressHUD
     - Kingfisher
+    - R.swift
+    - R.swift.Library
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
     - SwifterSwift
     - SwiftyJSON
+    - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
   Apollo: 8644d2d62bcb94d281379e99c26c22109afa67ed
+  CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
+  FontAwesome.swift: 2a3235131a6caffc6b2ccba318e94d793b2fd342
   IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
   JGProgressHUD: 62658b14e72cccf179efc7a13bcb54d30b92fc22
   Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: cffb1998ae841b1869c484a2daad93c16fbfbbcf
+PODFILE CHECKSUM: 575513610d1894e09e2eaa76ca5b0ad58e820d42
 
 COCOAPODS: 1.8.4
