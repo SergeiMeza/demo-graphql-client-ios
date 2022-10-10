@@ -9,7 +9,8 @@ You can find the source code for the server implementation [here](https://github
 ## Features
 
 - code generation
-- custom UI framework
+- custom UI framework written in UIKit
+- reactive code using `Rx.Swift`
 
 <h3 align="left">Support:</h3>
 <p><a href="https://www.buymeacoffee.com/sergeimeza"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="sergeimeza" /></a></p><br><br>
