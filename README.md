@@ -9,7 +9,7 @@ You can find the source code for the server implementation [here](https://github
 ## Features
 
 - code generation
-- custom UI framework written in UIKit
+- custom UI framework written in UIKit wrapping IGListKit
 - reactive code using `Rx.Swift`
 - custom [Music Manager](https://github.com/SergeiMeza/demo-graphql-client-ios/blob/master/demo-client-ios/Source/MusicManager/MusicManager.swift) using AVFoundation
 
