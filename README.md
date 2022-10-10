@@ -8,7 +8,8 @@ You can find the source code for the server implementation [in this repository](
 
 ## Features
 
-- code generation
+- MVVM pattern.
+- code generation of the network layer using GraphQL.
 - custom UI framework written in UIKit emulating the new SwiftUI syntax [here](https://github.com/SergeiMeza/demo-graphql-client-ios/tree/master/UIComponents/UIComponents/Source/Classes).
 - reactive code using `Rx.Swift`
 - custom [Music Manager](https://github.com/SergeiMeza/demo-graphql-client-ios/blob/master/demo-client-ios/Source/MusicManager/MusicManager.swift) using AVFoundation
