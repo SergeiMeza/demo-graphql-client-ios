@@ -3,7 +3,7 @@ Demo iOS application showcasing how to consume a GraphQL API. The API itself is 
 
 ## Server
 
-You can find the source code for the server implementation [here](https://github.com/SergeiMeza/demo-graphql-server).
+You can find the source code for the server implementation [in this repository](https://github.com/SergeiMeza/demo-graphql-server).
 
 
 ## Features
